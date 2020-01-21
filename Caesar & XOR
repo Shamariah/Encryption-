@@ -1,0 +1,81 @@
+#include <iostream>
+#include <string>
+#include <fstream>
+#include<bits/stdc++.h>
+using namespace std;
+
+//This function will encrypt and decrypt
+void encrypt(char inpString[]){
+
+    printf("%s\n", inpString);
+    
+    //Caesar  Encryption
+    for(int x = 0; (x < 100 & inpString[x] != '\0'); x++){
+        inpString[x] = inpString[x] + 3;
+    }
+    printf("%s\n", inpString);
+
+    //XOR KEY
+    //any character will do because the binary version will
+    //be used for the key
+
+    char xorKey = 's';
+
+    //calculate the length of the input string
+    int len = strlen(inpString);
+
+    //perform xor opp for every char
+    //in string
+    for (int i = 0; i < len; i++){
+        inpString[i] = inpString[i] ^ xorKey;
+    }
+
+    printf("%s\n", inpString);
+}
+
+void decrypt(char inpString[]){
+
+    printf("%s\n", inpString);
+
+    //XOR KEY
+    //any character will do because the binary version will
+    //be used for the key
+
+    char xorKey = 's';
+
+    //calculate the length of the input string
+    int len = strlen(inpString);
+
+    //perform xor opp for every char
+    //in string
+    for (int i = 0; i < len; i++){
+        inpString[i] = inpString[i] ^ xorKey;
+    }
+    printf("%s\n", inpString);
+
+    //Caesar Decryption
+    for(int x = 0; (x < 100 & inpString[x] != '\0'); x++){
+        inpString[x] = inpString[x] - 3;
+    }
+
+    printf("%s\n", inpString);
+}
+
+
+//Test code
+int main(){
+    char test[] = "ISA";
+    
+    //Encrypt 
+    cout<<"Encrypted String: ";
+    encrypt(test);
+
+
+    char hold[] = "?%7";
+    //Decrypt
+    cout<<"Decrypted String: ";
+    decrypt(hold);
+
+    return 0; 
+    
+}
